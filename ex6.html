@@ -19,6 +19,24 @@
     <script>
         
         // add code here
+        var selected_item = document.getElementById("select_item");
+        var ul = document.getElementById("shopList");
+        selected_item.addEventListener("change",addnewitem);
+
+        function addnewitem(){
+            var selected_value = selected_item.value;
+            
+            var items = ul.getElementsByTagName("li");
+            for (var i = 0; i <items.length ; i++){
+                if (items[i].textContent === selected_value){
+                    return;
+                }
+            }
+            var li = document.createElement("li");
+            var textnode = document.createTextNode(selected_value);
+            li.appendChild(textnode);
+            ul.appendChild(li);
+        }
     
     </script>
 
